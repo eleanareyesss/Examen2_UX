@@ -19,7 +19,6 @@ const TourCard = ({ tour }) => {
       setResMsg('');
       setLoadingAvail(true);
       const data = await getAvailability();
-      // Filtrar por tour_id del card
       const filtered = data.filter(d => d.tour_id === tour.id);
       setAvailability(filtered);
     } catch (e) {
@@ -39,7 +38,7 @@ const TourCard = ({ tour }) => {
 
   const handleSelectSchedule = (sched) => {
     setSelectedScheduleId(sched.schedule_id);
-    setSelectedScheduleTime(sched.schedule_time); // string timestamp
+    setSelectedScheduleTime(sched.schedule_time);
     setResMsg('');
   };
 
@@ -52,15 +51,13 @@ const TourCard = ({ tour }) => {
         return;
         }
       setResLoading(true);
-      // PUT espera scheduleTime + tourId
       const resp = await reserveTour({
         personName: personName.trim(),
         scheduleTime: selectedScheduleTime,
         tourId: tour.id,
         seats: 1,
       });
-      setResMsg(`✅ ${resp.message}. Reserva #${resp.reservationId}`);
-      // Refrescar disponibilidad (disminuye seats_remaining)
+      setResMsg(`${resp.message}. Reserva #${resp.reservationId}`);
       await loadAvailability();
     } catch (e) {
       const msg =
@@ -77,14 +74,12 @@ const TourCard = ({ tour }) => {
       <Card.Body>
         <Card.Title>{tour.name}</Card.Title>
         <Card.Text className="text-muted">{tour.description}</Card.Text>
-
         <div className="d-flex gap-2">
           <Button 
           variant="primary" onClick={handleToggle}> 
           {open ? 'Ocultar disponibilidad' : 'Ver disponibilidad'}
           </Button>
         </div>
-
         <Collapse in={open}>
           <div>
             <hr />
@@ -128,7 +123,6 @@ const TourCard = ({ tour }) => {
                       onChange={(e) => setPersonName(e.target.value)}
                     />
                   </Form.Group>
-
                   <div className="mt-3">
                     <Button
                       variant="success"

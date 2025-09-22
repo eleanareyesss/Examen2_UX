@@ -25,7 +25,6 @@ const Tours = () => {
   return (
     <Container className="py-4">
       <h2 className="mb-4">Tours disponibles</h2>
-
       {loading && (
         <div className="d-flex align-items-center gap-2">
           <Spinner animation="border" size="sm" /> 
@@ -33,7 +32,6 @@ const Tours = () => {
         </div>
       )}
       {err && <Alert variant="danger">{err}</Alert>}
-
       <Row>
         {tours.map(t => (
           <Col key={t.id} xs={12} md={6} lg={4}>
