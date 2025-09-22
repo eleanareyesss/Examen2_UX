@@ -108,14 +108,14 @@ const TourCard = ({ tour }) => {
                       name={`schedule-${tour.id}`}
                       id={`sch-${s.schedule_id}`}
                       className="mb-2"
-                      label={`${new Date(s.schedule_time).toLocaleString()} — cupos: ${s.seats_remaining}`}
+                      label={`${new Date(s.schedule_time).toLocaleString()} — Cupos: ${s.seats_remaining}`}
                       checked={selectedScheduleId === s.schedule_id}
                       onChange={() => handleSelectSchedule(s)}
                     />
                   ))}
 
                   <Form.Group className="mt-3">
-                    <Form.Label>Tu nombre</Form.Label>
+                    <Form.Label>Tu Nombre</Form.Label>
                     <Form.Control
                       type="text"
                       placeholder="Ej. María Pérez"

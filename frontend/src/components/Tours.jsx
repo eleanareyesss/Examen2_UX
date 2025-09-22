@@ -24,7 +24,7 @@ const Tours = () => {
 
   return (
     <Container className="py-4">
-      <h2 className="mb-4">Tours disponibles</h2>
+      <h2 className="mb-4">Tours Disponibles</h2>
       {loading && (
         <div className="d-flex align-items-center gap-2">
           <Spinner animation="border" size="sm" /> 
