@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setTours } from '../features/tours/toursSlice';
-import { getTours } from '../services/api';
+import { setTours } from '../features/toursSlice';
+import { getTours } from '../api/anxiosInstance';
 import { Container, Row, Col, Spinner, Alert } from 'react-bootstrap';
 import TourCard from './TourCard';
 
@@ -13,8 +13,7 @@ const Tours = () => {
 
   useEffect(() => {
     const load = async () => {
-      try {
-        setErr('');
+      try { setErr('');
         setLoading(true);
         const data = await getTours(10, 0);
         dispatch(setTours(data));

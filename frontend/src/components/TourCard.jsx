@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Card, Button, Collapse, Spinner, Alert, Form } from 'react-bootstrap';
-import { getAvailability, reserveTour } from '../services/api';
+import { getAvailability, reserveTour } from '../api/axiosInstance';
 
 const TourCard = ({ tour }) => {
   const [open, setOpen] = useState(false);
