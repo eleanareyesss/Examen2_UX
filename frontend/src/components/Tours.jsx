@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setTours } from '../features/toursSlice';
-import { getTours } from '../api/anxiosInstance.js';
+import { getTours } from '../api/axiosInstance.js';
 import { Container, Row, Col, Spinner, Alert } from 'react-bootstrap';
 import TourCard from './TourCard';
 
